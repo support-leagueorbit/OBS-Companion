@@ -10,7 +10,7 @@ OBS Companion watches your table cameras and directs OBS for you:
 - works with your OBS plugins: copy and import filter setups between sources and computers, and use Audio Monitor, Aitum Multistream (for example Facebook alongside YouTube) and DistroAV (NDI) from the control page;
 - lets an AI assistant help through MCP, while a person always stays in charge.
 
-Made by **LeagueOrbit**. Current version: **0.8.0-preview** ([what's new](CHANGELOG.md)).
+Made by **LeagueOrbit**. Current version: **0.8.1-preview** ([what's new](CHANGELOG.md)).
 
 > Preview release: it works, but it's still young. macOS and Linux builds are provided but have had less testing than Windows.
 

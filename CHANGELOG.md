@@ -2,6 +2,18 @@
 
 All notable changes to OBS Companion. Versions marked "preview" work but are still young.
 
+## 0.8.1-preview
+
+**Hotkeys**
+- **Hotkeys** in Settings: use the control page's shortcuts while OBS or a game has the focus (Windows; off until you switch them on). **Ctrl+Alt+Shift** plus the page's key switches scenes, presses custom buttons, scores, saves a replay or changes mode, and each key can be changed or turned off. No hotkey starts or stops the stream.
+- **Stream Deck** and macro pads: point a Stream Deck **Hotkey** button at an OBS Companion hotkey (F13–F24 work on their own). See the user guide.
+
+**Score overlays you already use**
+- Paste the control link of a score overlay you already use (the Blue Ridge BCA stream overlay to start with) and OBS Companion keeps its score in step. Switching it on asks first. If the score is changed on the overlay's own page, OBS Companion asks which score is right instead of overwriting it. The link is kept in the computer's keychain and never shown again.
+
+**Accessibility**
+- Screen readers describe the live program picture: which scene is on air and the score. The Studio Mode preview names its scene.
+
 ## 0.8.0-preview
 
 **Filters and plugins**

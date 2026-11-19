@@ -200,6 +200,23 @@ These switches decide what the companion may do on its own and what an AI may do
 ### Score text sources
 Choose which OBS **text sources** show Name A, Score A, Name B, Score B and the race. The companion writes into them on every score change. To use the built-in score bar instead, add a **Browser source** in OBS with the URL `http://127.0.0.1:8765/overlay/score` at 1920×1080.
 
+### Score overlays you already use
+
+If you already stream with a score overlay that has its own control link, OBS Companion can keep that overlay's score in step, so you score in one place. It works with the **Blue Ridge BCA stream overlay** today.
+
+1. On the overlay's own control page, copy its **control link** (the one you'd open to change the score), not the overlay link OBS shows.
+2. In **Settings › Score overlays you already use**, paste it, give it a name if you like, and press **Check and add**. OBS Companion reads the overlay once to check the link and changes nothing.
+3. Switch on **Keep in step**. OBS Companion asks first, because it then sends its own score and names over what the overlay shows. From then on every score change goes to the overlay too.
+
+- **Test** reads the overlay again and shows what it says, without changing it.
+- Event, table, game type and a handicap race set on the overlay's own page are left as they are. OBS Companion sends names, games and the race, marks the match **Final** when someone wins and **Live** when a new match starts.
+- **If someone changes the score on the overlay's own page**, OBS Companion doesn't overwrite it. It stops updating that overlay and asks on the Live tab which score is right: **Use the overlay's score** (OBS Companion takes it) or **Send ours**.
+- If the overlay can't be reached, OBS Companion keeps only the latest score and tries again. When the overlay answers, it gets the latest score. If the link stops working (for example the keys were replaced on the overlay's admin page), it says so and stops; remove it and add the new link.
+- After OBS Companion restarts, it reads each overlay first. If the overlay shows a different score, it asks before sending anything.
+- Up to 4 overlays at once.
+- The control link works like a password: anyone who has it can change your overlay. OBS Companion keeps it in this computer's keychain, never shows it again, and never writes it to a log. An AI assistant and paired phones can't add, change or switch overlays, and only ever see their name and whether they're up to date.
+- One thing OBS Companion can't change: the Blue Ridge BCA overlay's link carries its key in the address, so it can end up in that website's own server logs.
+
 ### Scoring
 On the **Live** tab:
 - **New match:** enter the names and the race (games needed to win; 0 for no limit).
@@ -240,6 +257,26 @@ Everything on the control page works from the keyboard: **Tab** moves between co
 | **M** | Change mode: Off › Assist › On |
 | **L** | Show the activity log |
 | **?** | Show these shortcuts |
+
+### Hotkeys (while OBS or a game has the focus)
+
+The shortcuts above only work while this page has the focus. To use them while you're in OBS, a game or anything else, open **Settings › Hotkeys** and switch on **Use the shortcuts while OBS or a game has the focus**, then press **Save settings**. Hotkeys work on Windows only for now.
+
+- The keys add **Ctrl**+**Alt**+**Shift** to the page's shortcuts: **Ctrl+Alt+Shift+1**–**9** switch scenes, **Ctrl+Alt+Shift+F1**–**F9** press custom buttons, and **Ctrl+Alt+Shift+Space**, **A**, **B**, **Z**, **R** and **M** do what **Space**, **A**, **B**, **Z**, **R** and **M** do on the page.
+- **Change the keys** lists every hotkey. Type another combination, such as **Ctrl+Alt+F5**, or leave a box empty for no hotkey. A combination needs **Ctrl**, **Alt** or **Win**, except **F13**–**F24**, which macro pads and Stream Deck can send on their own.
+- While OBS Companion runs, these combinations work only for it, not in other programs. If another program already uses one, the card says so; choose another key, or switch hotkeys off and on again after closing that program.
+- A hotkey is you pressing a key at this computer, so it does what the page's shortcut does. A mistake, such as a scene number you don't have, is shown in the activity list.
+- No hotkey starts or stops your stream or a recording, and an AI assistant can't press or change hotkeys.
+
+### Stream Deck and macro pads
+
+A Stream Deck (or any macro pad that can send key presses) works through the hotkeys above, so switch them on first.
+
+1. In **Settings › Hotkeys › Change the keys**, note the key for each thing you want on a button. You can also give an action a key the keyboard doesn't have, such as **F13**–**F24**, so it can never clash with another program. Press **Save settings**.
+2. In the Stream Deck app, drag **System › Hotkey** onto a button and press that same combination in its **Hotkey** box (for F13–F24, choose it from the box's list).
+3. Press the button: OBS Companion does it, and the activity list says so if it couldn't (for example "there's no scene 9").
+
+Stream Deck sends only a key press. It holds no OBS Companion key and can do only what a hotkey can, so it can't start or stop your stream or a recording.
 
 In the overlay editor, **Tab** reaches each item on the canvas: the **arrow keys** move it (**Shift** moves further), **Alt**+arrows resize it, and **Delete** removes it.
 
