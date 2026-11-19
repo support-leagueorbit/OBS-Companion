@@ -2,6 +2,15 @@
 
 All notable changes to OBS Companion. Versions marked "preview" work but are still young.
 
+## 0.8.2-preview
+
+**Updating**
+- A new version now closes the old one when it starts, so an update takes effect straight away. Before, if the old copy was still running, starting the new version opened the old copy's page. (Updating from 0.8.1 or earlier: quit the old copy first.)
+- **Settings › Updates** shows which version is running, and so does the tray icon's tooltip.
+
+**Score files**
+- **Score files**: OBS Companion can also write the score into a folder you choose (`name_a.txt`, `name_b.txt`, `score_a.txt`, `score_b.txt`, `race.txt` and `score.json`), for scoreboards, Stream Deck plugins and other tools that read files. Settings › Score display. See the user guide.
+
 ## 0.8.1-preview
 
 **Hotkeys**

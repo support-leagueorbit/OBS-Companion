@@ -10,7 +10,7 @@ OBS Companion watches your table cameras and directs OBS for you:
 - works with your OBS plugins: copy and import filter setups between sources and computers, and use Audio Monitor, Aitum Multistream (for example Facebook alongside YouTube) and DistroAV (NDI) from the control page;
 - lets an AI assistant help through MCP, while a person always stays in charge.
 
-Made by **LeagueOrbit**. Current version: **0.8.1-preview** ([what's new](CHANGELOG.md)).
+Made by **LeagueOrbit**. Current version: **0.8.2-preview** ([what's new](CHANGELOG.md)).
 
 > Preview release: it works, but it's still young. macOS and Linux builds are provided but have had less testing than Windows.
 
@@ -63,7 +63,11 @@ The full guide: [docs/USER_GUIDE.md](docs/USER_GUIDE.md). Questions: [FAQ](FAQ.m
 
 ## Update
 
-Install the new version over the old one: quit OBS Companion (tray icon › **Quit**), then download, check and run the new Setup program (or unpack the new archive over the old folder). Your settings, cameras and media are kept.
+Download, check and run the new Setup program (or unpack the new archive over the old folder). Your settings, cameras and media are kept. From 0.8.2 on, the new version closes the old one when it starts, so you don't need to quit first.
+
+**Updating from 0.8.1 or earlier:** quit the old copy first (tray icon › **Quit**). It can't be closed for you, and the new version says so if it's still running.
+
+To see which version is running: **Settings**, at the bottom of the **Updates** card.
 
 ## Uninstall
 

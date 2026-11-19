@@ -200,6 +200,21 @@ These switches decide what the companion may do on its own and what an AI may do
 ### Score text sources
 Choose which OBS **text sources** show Name A, Score A, Name B, Score B and the race. The companion writes into them on every score change. To use the built-in score bar instead, add a **Browser source** in OBS with the URL `http://127.0.0.1:8765/overlay/score` at 1920×1080.
 
+### Score files
+Some scoreboards, Stream Deck plugins and other tools read the score from text files. In **Settings › Score display**, type a folder into **Also write the score as files into this folder** and press **Save settings**. OBS Companion writes these files there straight away and again on every score change:
+
+| File | Holds |
+|---|---|
+| `name_a.txt`, `name_b.txt` | the players' names, on one line |
+| `score_a.txt`, `score_b.txt` | games won |
+| `race.txt` | the race (empty when the match is open-ended) |
+| `score.json` | all of the above, plus the winner (`"a"`, `"b"` or empty) |
+
+- The folder must already exist on this computer, given in full, such as `C:\Stream\Score`. Network folders (`\\server\…`) aren't allowed, because opening one can send your Windows sign-in to another computer.
+- Only these six files are written; anything else in the folder is left alone. Each file is replaced in one step, so a tool never reads half a file.
+- If the folder goes away, the activity list says so once and OBS Companion tries again on the next point.
+- Empty the box and save to stop. An AI assistant and paired phones can't change the folder.
+
 ### Score overlays you already use
 
 If you already stream with a score overlay that has its own control link, OBS Companion can keep that overlay's score in step, so you score in one place. It works with the **Blue Ridge BCA stream overlay** today.
