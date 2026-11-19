@@ -166,7 +166,7 @@ When a side reaches the race, the match is won: the winner scene shows and a rep
 ### LeagueOrbit (optional)
 Tick **Follow a LeagueOrbit table** and paste the table's **overlay link code**. Scores and match wins then come from LeagueOrbit. The code only lets the companion **read** the score: nothing is ever sent back with it. This needs LeagueOrbit's companion feed; until LeagueOrbit offers it, keep using LeagueOrbit's own browser-source overlay as usual.
 
-**LeagueOrbit account (coming in a later version).** Settings › LeagueOrbit will offer **Sign in with LeagueOrbit**. It opens LeagueOrbit's own sign-in page in your browser: your password is only ever typed there, never into the companion. Your sign-in is kept in your computer's own password store (Windows Credential Manager, the macOS keychain, or your Linux desktop's keyring), and your plan keeps working without internet for up to 3 days after it last checked. If your computer's clock is set back, the plan shows as Free until the clock is right. **Sign out** ends the sign-in on LeagueOrbit too, and removes it from this computer even when you're offline. Uninstalling removes the sign-in as well; on macOS and Linux, run `obs-companion forget-signin` before deleting the program. Until then the page says sign-in is coming, and everything works without an account.
+**LeagueOrbit account (coming in a later version).** Settings › LeagueOrbit will offer **Sign in with LeagueOrbit**. It opens LeagueOrbit's own sign-in page in your browser: your password is only ever typed there, never into the companion. Your sign-in is kept in your computer's own password store (Windows Credential Manager, the macOS keychain, or your Linux desktop's keyring), and your plan keeps working without internet for up to 3 days after it last checked. It checks about once an hour, and after being offline (or after your computer wakes from sleep) it checks again within minutes. If your computer's clock is set back, the plan shows as Free until the clock is right. **Sign out** ends the sign-in on LeagueOrbit too, and removes it from this computer even when you're offline. It also takes the LeagueOrbit overlays that need a sign-in out of your ready-made scenes (the free one stays). Uninstalling removes the sign-in as well; on macOS and Linux, run `obs-companion forget-signin` before deleting the program. Until then the page says sign-in is coming, and everything works without an account.
 
 
 
@@ -179,6 +179,26 @@ Tick **Follow a LeagueOrbit table** and paste the table's **overlay link code**.
 - **On:** the companion switches by itself, within the settings above.
 
 The tray icon has the same three choices.
+
+### Keyboard and display
+
+Everything on the control page works from the keyboard: **Tab** moves between controls (the focused one has a blue ring), and **Enter** or **Space** presses it. **Esc** closes a dialog. When you're not typing in a box, these shortcuts work too:
+
+| Key | What it does |
+|---|---|
+| **1**–**9** | Switch to scene 1–9 |
+| **Shift**+**1**–**9** | Press custom button 1–9 |
+| **Space** | Transition (in OBS Studio Mode) |
+| **A** / **B** | +1 game for player A / B |
+| **Z** | Undo the last score change |
+| **R** | Save a replay |
+| **M** | Change mode: Off › Assist › On |
+| **L** | Show the activity log |
+| **?** | Show these shortcuts |
+
+In the overlay editor, **Tab** reaches each item on the canvas: the **arrow keys** move it (**Shift** moves further), **Alt**+arrows resize it, and **Delete** removes it.
+
+The sun/moon button at the top switches between the dark and light theme. Until you choose one, the page follows your computer's light or dark setting. Text in both themes meets the WCAG AA contrast level, and animations are reduced when your computer asks for less motion.
 
 ---
 
@@ -278,11 +298,15 @@ Control the stream from a phone on the same Wi-Fi as the PC.
 
 **Cameras card:** once the ready-made scenes are set up on the PC (OBS tab), the **Live** tab shows a **Cameras** card: a small picture of the layout, which camera is main and which is picture-in-picture, and a **Swap cameras** button. One tap switches to the other camera scene ("Camera 1 (PIP 2)" ↔ "Camera 2 (PIP 1)"). Like any scene switch, this takes control from the auto director until you press **Hand back to auto**. Moving the picture-in-picture box, the border, the logo slots and the overlays are set on the PC.
 
+**TalkBack and large text:** every control has a spoken name, the on-air scene and the selected Auto director mode are read as selected, and the phone reads out changes made elsewhere (the scene on air, the score and a win, the mode, the stream going live or ending) as well as its own messages. Text and buttons meet the WCAG AA contrast level.
+
 **What it can't do:** see secrets (it shows only whether the LeagueOrbit code is set), change settings or security, pair other phones, install or delete graphics packs, or check for updates. Those stay on the PC.
 
 **Security:** the phone talks to the PC over encrypted TLS on port 8767, and only to the exact PC it paired with (it checks the certificate fingerprint from the QR). The phone keeps its key in Android's encrypted storage, and the PC stores only a hash of it. Pairing attempts are limited to 5 a minute per device. If the phone says *"This isn't the companion you paired with"*, the PC's certificate has changed: unpair and pair again, and if you didn't reinstall the companion, check your network.
 
 **Troubleshooting:** the phone must be on the same network as the PC, and Windows may ask you once to allow OBS Companion through the firewall on private networks. **Look for PCs on this network** finds PCs that have phones turned on.
+
+If the Phones section says **"phones are off: the phone certificate … can't be loaded"**, the file the phones trust is damaged. The companion leaves it alone so your paired phones aren't cut off without warning. Restore `tls-cert.pem` and `tls-key.pem` from a backup, or delete both files (the message names the folder), restart the companion and pair the phones again.
 
 ---
 

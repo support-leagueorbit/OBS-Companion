@@ -9,7 +9,7 @@ OBS Companion watches your table cameras and directs OBS for you:
 - finds your OBS Studio, reads your current setup, and recommends the best stream settings for your computer (encoder, bitrate, resolution, frame rate), each with a reason;
 - lets an AI assistant help through MCP, while a person always stays in charge.
 
-Made by **LeagueOrbit**. Current version: **0.6.0-preview** ([what's new](CHANGELOG.md)).
+Made by **LeagueOrbit**. Current version: **0.7.0-preview** ([what's new](CHANGELOG.md)).
 
 > Preview release: it works, but it's still young. macOS and Linux builds are provided but have had less testing than Windows.
 
