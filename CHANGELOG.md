@@ -2,6 +2,14 @@
 
 All notable changes to OBS Companion. Versions marked "preview" work but are still young.
 
+## 0.8.3-preview
+
+**Score overlays you already use**
+- **Singular and overlays.uno** scoreboards (new, preview): paste the app's shared token, check which of its fields show the names, scores and race (OBS Companion suggests them), and keep it in step like the Blue Ridge BCA overlay. See the user guide.
+
+**Scenes**
+- **Favourite and hidden scenes** on the Live tab: **Arrange scenes** lets you keep favourites at the top and tuck others into a **Hidden scenes** list, where they can still be picked. Keys, hotkeys and Stream Deck buttons keep switching to the same scenes. The marks are kept in OBS Companion, never in your OBS files. The phone app shows them too and can arrange them.
+
 ## 0.8.2-preview
 
 **Updating**

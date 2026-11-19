@@ -232,6 +232,19 @@ If you already stream with a score overlay that has its own control link, OBS Co
 - The control link works like a password: anyone who has it can change your overlay. OBS Companion keeps it in this computer's keychain, never shows it again, and never writes it to a log. An AI assistant and paired phones can't add, change or switch overlays, and only ever see their name and whether they're up to date.
 - One thing OBS Companion can't change: the Blue Ridge BCA overlay's link carries its key in the address, so it can end up in that website's own server logs.
 
+#### Singular and overlays.uno
+
+Singular.live control apps, including overlays.uno scoreboards, work the same way, with one extra step: every design names its fields differently, so you choose once which fields show the names and the score.
+
+1. Copy the app's **shared token**: in overlays.uno, press the `</>` button; in Singular's dashboard, press **i** and look under **URLs and Token**. A full `https://app.singular.live/apiv2/controlapps/…` address works too.
+2. Paste it into **Settings › Score overlays you already use** and press **Check and add**. OBS Companion reads the overlay's fields (it changes nothing) and opens **Choose fields** with its best guess.
+3. Check each box: **Name A**, **Name B**, **Score A**, **Score B** and **Race**. Names and race are optional; both scores are needed. Press **Save fields**, then switch on **Keep in step**.
+
+- Only the chosen fields are changed, and only when they need to be; logos, colours and everything else stay as you set them in Singular.
+- Singular's free plan allows 25 updates a minute. OBS Companion sends only what changed, and if Singular says to slow down, it waits and sends the latest score.
+- If the overlay's design changes and a chosen field disappears, OBS Companion stops updating it and asks you to choose the fields again. Changing the fields switches **Keep in step** off until you switch it on again.
+- The token works like a password, like a control link: it's kept in this computer's keychain and never shown again.
+
 ### Scoring
 On the **Live** tab:
 - **New match:** enter the names and the race (games needed to win; 0 for no limit).
@@ -256,6 +269,21 @@ Tick **Follow a LeagueOrbit table** and paste the table's **overlay link code**.
 - **On:** the companion switches by itself, within the settings above.
 
 The tray icon has the same three choices.
+
+### Favourite and hidden scenes
+
+With many scenes, keep the ones you use at the top of the Live tab and tuck the others away. Press **Arrange scenes** above the scene tiles. Each tile then has two buttons:
+
+- **☆ Favourite**: the scene stays at the top. Press it again to undo.
+- **Hide**: the scene moves into **Hidden scenes** below the tiles. Open that list to pick a hidden scene, or press **Unhide**.
+
+Press **Done** (the same button) when you've finished. While arranging, tapping a tile doesn't switch scenes.
+
+- Each group keeps OBS's own order.
+- Each tile keeps its OBS number, so the **1**–**9** keys, hotkeys and Stream Deck buttons switch to the same scene as before, hidden or not.
+- If the scene on air is hidden, the list's heading says "one is LIVE".
+- The marks are saved in OBS Companion by scene name; your OBS files aren't changed. A renamed scene shows as an ordinary one, so mark it again. A new scene given an old marked name gets that mark.
+- The phone app shows the same groups and has its own **Arrange scenes** button (it needs OBS Companion 0.8.3 or later on the PC). An AI assistant can't change the marks.
 
 ### Keyboard and display
 
