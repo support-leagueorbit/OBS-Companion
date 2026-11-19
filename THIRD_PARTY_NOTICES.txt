@@ -1,4 +1,4 @@
-OBS Companion 0.7.0-preview includes the open-source components below.
+OBS Companion 0.8.0-preview includes the open-source components below.
 Each is listed with its licence text, as its licence requires.
 
 ========================================================================

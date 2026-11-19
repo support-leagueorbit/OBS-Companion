@@ -2,6 +2,22 @@
 
 All notable changes to OBS Companion. Versions marked "preview" work but are still young.
 
+## 0.8.0-preview
+
+**Filters and plugins**
+- Copy a source's filters and paste them on other sources and scenes, or export them to a file and import them. Any filter your OBS has works, including plugin filters such as Audio Monitor. Before anything changes you see filters whose plugin isn't installed, names already in use, where an Audio Monitor sends sound, and any files the filters use. Each filter's result is shown, and the paste can be undone.
+- **OBS plugins** card on the OBS tab: which plugins your OBS has (recognised from the filters, sources and outputs they add) and what OBS Companion can do with each. It knows Audio Monitor, Aitum Multistream and DistroAV (NDI), and lists other plugins' filter kinds.
+- **Audio Monitor** in the audio mixer: a switch per source says which device it also plays on (for example "Also on Headset"), and **Add Audio Monitor…** copies a working one from another source.
+- **DistroAV (NDI)** in the plugins card: add an NDI camera, send a scene or source over NDI, and start or stop the NDI main or preview output (after you confirm).
+- **Aitum Multistream** with Go live: tick which of Aitum's outputs (for example Facebook) start with your main stream. Go live names every output it starts and you confirm once; each output's result is shown, and End stream stops them too. Stream keys stay in Aitum, never in OBS Companion.
+
+**Accessibility**
+- In the overlay editor, moving an item with the arrow keys stops at the centre and safe-area lines, as dragging does; press again to go past.
+
+**Stream settings**
+- While you stream, **Connection** on the OBS tab says whether your connection keeps up, from OBS's own counters (nothing extra is sent). If it doesn't, it suggests a lower bitrate; nothing changes until you set it.
+- A graphics adapter whose name merely contains "arc" (some virtual display adapters) is no longer taken for an Intel Arc card when picking the encoder.
+
 ## 0.7.0-preview
 
 **Accessibility**

@@ -59,6 +59,11 @@ Your stream key is never read or shown; you only see whether one is set. **Use t
   - Hybrid MP4 recordings that reuse the stream's encoding.
 - **OBS process priority** is an OBS-wide setting, marked **set it in OBS**: set it yourself in OBS.
 
+**Connection** (at the top of the card) says whether your connection keeps up while you stream. Every 5 seconds the companion reads OBS's own counters: how much was sent, how many frames were dropped for the network, and how congested OBS says the connection is. Nothing extra is sent anywhere. After about 20 seconds of streaming it shows one of:
+- **keeping up:** what got through in the last minute and how few frames were dropped;
+- **isn't keeping up:** more than 1 % of frames dropped, or OBS reports heavy congestion. It suggests a lower video bitrate. Nothing changes until you set it yourself in OBS › Settings › Output (or type a lower **Upload speed** here and apply again once you've stopped streaming).
+Reopen the OBS tab to see the latest reading.
+
 **Apply as a new OBS profile** puts the settings into a new OBS profile called **OBS Companion recommended** and switches OBS to it, after you confirm with **Apply and switch**. Your own profile is never changed.
 - Afterwards you see **What changed** (every setting, before and after) and a check that OBS loaded the settings.
 - **Switch back to my profile** returns to your own profile at any time.
@@ -98,6 +103,46 @@ Good to know:
 - An AI assistant can swap cameras with the MCP tool `swap_cameras` (same rules as switching scenes).
 - OBS's scene list also shows three helper scenes starting with "Companion:" (the shared logo slots and the two PIP frames). Leave them in place; they're what keeps everything identical.
 - Setting up and changing the scenes is for a person only. An AI assistant can switch to them but can't change them.
+
+### Filters: copy, paste and import (OBS tab)
+
+On the OBS tab, the **Sources** card has a filter button on each source. It opens that source's filters, where you can add any filter your OBS has, including plugin filters, and switch filters on and off.
+
+- **Copy filters**, then open another source's filters and press **Paste filters…**. Tick the sources and scenes to put them on, then press **Check**.
+  - The check shows what will happen before anything changes:
+    - filters whose plugin isn't installed in this OBS;
+    - names that are already there;
+    - which sound devices an **Audio Monitor** filter sends sound to;
+    - any files or web addresses the filters use.
+  - Then press **Add filters**. You see a result for each filter, and **Undo this paste** removes exactly what it added.
+- **Export…** saves a source's filters to a file, and **Import…** pastes them from a file, for instance onto another computer.
+  - Settings that look like passwords or keys are left out of copies and files.
+  - A file is refused if it's larger than 256 KB, has more than 32 filters, or isn't an OBS Companion filter file.
+  - Files on another computer (`\\server\…`), paths with `..`, and addresses that aren't http or https are never used. That filter is skipped and the result says why.
+- **A filter whose plugin isn't installed is never added silently.** It's listed before you confirm and skipped with the reason. Install the plugin in OBS, then import again. OBS Companion never downloads or installs plugins.
+- **Plugins with settings OBS Companion can't list yet** (for example the sound device of an Audio Monitor filter): set the filter up once in OBS, then copy it, or export it and import it elsewhere.
+- Filters are for a person only. An AI assistant can't read, add, change or import them, and can't change where sound is monitored.
+
+### OBS plugins (OBS tab)
+
+The **OBS plugins** card shows which plugins your OBS has and what OBS Companion can do with each. OBS can't list its plugins directly, so the companion recognises them from the filters, sources and outputs they add. Press **Check again** after installing one.
+
+- **Audio Monitor:** hear a source on a second device, for example a microphone in the headphones.
+  - In the OBS tab's audio mixer, a source with an Audio Monitor filter gets a switch that names the device ("Also on Headset").
+  - A source without one gets **Add Audio Monitor…**, which copies a working one from another source, with its device, after you confirm.
+  - OBS Companion can't list your sound devices for a brand-new filter yet. Set the first one up in OBS (right-click the source › Filters › + › Audio Monitor), then copy it, or export it and import it on another computer.
+- **Aitum Multistream:** stream to more places at once, for example Facebook alongside YouTube.
+  - Add each destination, with its server and stream key, once in Aitum's own dock in OBS. OBS Companion never reads, stores or sends stream keys.
+  - The plugin's card lists Aitum's outputs by name, with whether each is live. Under **When I go live, also start**, tick the ones to start with your main stream.
+  - **Go live** then names every output it starts, for example "YouTube (main) + Facebook (Aitum)". You confirm once, and you see each output's result. If one fails, the others still start, and the failure is shown.
+  - **End stream** also stops the outputs you ticked, and says so before you confirm.
+  - Only a person can start or stop them. An AI assistant can see their names and whether they're live, nothing more.
+- **DistroAV (NDI):** the plugin's card offers three actions.
+  - **Add NDI camera…** adds an NDI source to a scene. Type the source's name as NDI shows it (for example in NDI Studio Monitor). Names already used in this OBS are suggested. OBS Companion can't list the NDI sources on your network yet.
+  - **Send over NDI…** puts DistroAV's NDI filter on a scene or source, so other computers on your network can receive it under the name you give.
+  - **NDI main output / NDI preview output: Start… / Stop…** starts or stops DistroAV's outputs. Starting asks first, because it sends your program to every NDI receiver on your network. Only a person can do this; an AI assistant can see whether they're on, nothing more.
+- **Other plugins:** their filter kinds are listed, and their filters can be added, copied and imported like any other.
+- Each plugin's card links to its own page. Install plugins in OBS yourself; OBS Companion never downloads or installs them.
 
 ---
 

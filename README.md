@@ -7,9 +7,10 @@ OBS Companion watches your table cameras and directs OBS for you:
 - keeps names and scores on screen, and shows a winner scene and saves a replay when a match is won;
 - builds ready-made scenes with your logo, sponsor and picture in the same place everywhere, and a framed picture-in-picture for a second camera that you can drag anywhere and swap with one click;
 - finds your OBS Studio, reads your current setup, and recommends the best stream settings for your computer (encoder, bitrate, resolution, frame rate), each with a reason;
+- works with your OBS plugins: copy and import filter setups between sources and computers, and use Audio Monitor, Aitum Multistream (for example Facebook alongside YouTube) and DistroAV (NDI) from the control page;
 - lets an AI assistant help through MCP, while a person always stays in charge.
 
-Made by **LeagueOrbit**. Current version: **0.7.0-preview** ([what's new](CHANGELOG.md)).
+Made by **LeagueOrbit**. Current version: **0.8.0-preview** ([what's new](CHANGELOG.md)).
 
 > Preview release: it works, but it's still young. macOS and Linux builds are provided but have had less testing than Windows.
 
