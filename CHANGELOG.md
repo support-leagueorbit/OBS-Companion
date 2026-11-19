@@ -18,6 +18,7 @@ All notable changes to OBS Companion. Versions marked "preview" work but are sti
 - The phone connection's certificate is never replaced silently. If it's damaged while phones are paired, phones are turned off and the Phones page, the activity list and the log say what happened and what to do (see the user guide).
 
 **Install and uninstall**
+- The one-line install commands (`irm … | iex`, `curl … | sh`) are gone, also from 0.6.0-preview: they ran a script from the internet before anything could check it, and the scripts had a fault that stopped them working. Download the Setup program or the archive, check it against `SHA256SUMS` (the README shows the command), then run it.
 - If an update can't copy the new version (a full disk, a virus scanner holding the file), the version you had is put back instead of leaving no program.
 - Uninstalling a second copy (say, a test copy) no longer removes the other copy's start-at-sign-in entry, Apps & features entry or Start menu shortcut.
 - The tray's **Start when I sign in** appears only in the installed copy, and its tick shows whether it starts that copy.

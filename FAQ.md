@@ -22,7 +22,7 @@ You type it in (from any speed test). The recommended bitrate leaves headroom so
 OBS Companion isn't signed with a paid certificate, so Windows doesn't recognise the publisher yet. If you downloaded the file from this repository's Releases page, click **More info**, then **Run anyway**. You can check the file's SHA-256 against `SHA256SUMS` from the same release first (see the README).
 
 **macOS says it can't check the app for malicious software.**
-The macOS builds aren't notarised (that needs a paid Apple account). If you downloaded the archive in a browser, right-click the program and choose **Open** the first time. The one-command install doesn't need this.
+The macOS builds aren't notarised (that needs a paid Apple account). If you downloaded the archive in a browser, right-click the program and choose **Open** the first time.
 
 **Where are my settings kept? How do I uninstall?**
 Settings, media and keys are kept in `%APPDATA%\obs-companion` (Windows), `~/Library/Application Support/obs-companion` (macOS) or `~/.config/obs-companion` (Linux).

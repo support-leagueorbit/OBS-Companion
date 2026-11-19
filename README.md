@@ -23,45 +23,31 @@ Made by **LeagueOrbit**. Current version: **0.7.0-preview** ([what's new](CHANGE
 
 ## Download and install
 
-### Option 1: download the installer
+1. **Download** the file for your computer, and `SHA256SUMS`, from the [latest release](https://github.com/support-leagueorbit/OBS-Companion/releases/latest):
 
-Get the file for your computer from the [latest release](https://github.com/support-leagueorbit/OBS-Companion/releases/latest):
+   | Computer | File |
+   |---|---|
+   | Windows 10/11 (64-bit) | [OBS-Companion-Setup-windows-amd64.exe](https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/OBS-Companion-Setup-windows-amd64.exe) |
+   | macOS, Apple silicon (M1 and later) | [obs-companion-darwin-arm64.tar.gz](https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/obs-companion-darwin-arm64.tar.gz) |
+   | macOS, Intel | [obs-companion-darwin-amd64.tar.gz](https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/obs-companion-darwin-amd64.tar.gz) |
+   | Linux, 64-bit PC | [obs-companion-linux-amd64.tar.gz](https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/obs-companion-linux-amd64.tar.gz) |
+   | Linux, ARM 64-bit | [obs-companion-linux-arm64.tar.gz](https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/obs-companion-linux-arm64.tar.gz) |
+   | Checksums | [SHA256SUMS](https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/SHA256SUMS) |
 
-| Computer | File |
-|---|---|
-| Windows 10/11 (64-bit) | `OBS-Companion-Setup-windows-amd64.exe`: double-click it to install |
-| macOS, Apple silicon (M1 and later) | `obs-companion-darwin-arm64.tar.gz` |
-| macOS, Intel | `obs-companion-darwin-amd64.tar.gz` |
-| Linux, 64-bit PC | `obs-companion-linux-amd64.tar.gz` |
-| Linux, ARM 64-bit | `obs-companion-linux-arm64.tar.gz` |
+2. **Check it** in the folder you downloaded to. The number must match the file's line in `SHA256SUMS`; if it doesn't, delete the file and download it again.
+   - Windows (Command Prompt or PowerShell): `certutil -hashfile OBS-Companion-Setup-windows-amd64.exe SHA256`
+   - macOS: `shasum -a 256 obs-companion-darwin-arm64.tar.gz` (or `-darwin-amd64`)
+   - Linux: `sha256sum --ignore-missing -c SHA256SUMS` (prints `OK` for the file you downloaded)
 
-On macOS and Linux, unpack the archive and double-click (or run) `obs-companion` in the `obs-companion` folder.
+3. **Run it.**
+   - Windows: double-click the Setup program. It installs for your user account only.
+   - macOS and Linux: unpack the archive (`tar -xzf <file>`) and run `obs-companion` in the `obs-companion` folder.
 
-To check a download, compare its SHA-256 with the line in `SHA256SUMS` from the same release:
-- Windows (PowerShell): `Get-FileHash .\OBS-Companion-Setup-windows-amd64.exe -Algorithm SHA256`
-- macOS: `shasum -a 256 obs-companion-darwin-arm64.tar.gz`
-- Linux: `sha256sum obs-companion-linux-amd64.tar.gz`
-
-### Option 2: one command
-
-The install scripts download only from this repository's GitHub Releases, check the SHA-256 against `SHA256SUMS` before installing anything, and install for your user account only. You can [read them first](install.ps1).
-
-**Windows** (PowerShell):
-```powershell
-irm https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/install.ps1 | iex
-```
-
-**macOS and Linux** (Terminal):
-```sh
-curl -fsSL https://github.com/support-leagueorbit/OBS-Companion/releases/latest/download/install.sh | sh
-```
-
-The program goes to `%LOCALAPPDATA%\Programs\OBS Companion` on Windows and to `~/.local/bin/obs-companion` on macOS and Linux. Options: [install.ps1](install.ps1) takes `-Version`, `-Login` (start at sign-in) and `-NoStart`; [install.sh](install.sh) takes `--version` and `--dir`.
+There is no one-line install command on purpose: piping a script from the internet into a shell runs it before anything can be checked.
 
 ### "Windows protected your PC" / "unknown publisher"
 
-OBS Companion isn't signed with a paid code-signing certificate, so the first time you run the Setup program Windows SmartScreen may show a blue box saying *Windows protected your PC* (publisher: unknown). Click **More info**, then **Run anyway**. Only do this for a file you downloaded from this repository's [Releases page](https://github.com/support-leagueorbit/OBS-Companion/releases), and check its SHA-256 if in doubt. The one-command install usually doesn't show this box, because files a script downloads aren't marked as coming from the internet; it checks the SHA-256 instead. On macOS, a file downloaded in a browser may need **right-click › Open** the first time; the one-command install avoids that too.
-
+OBS Companion isn't signed with a paid code-signing certificate, so the first time you run the Setup program Windows SmartScreen may show a blue box saying *Windows protected your PC* (publisher: unknown). Click **More info**, then **Run anyway**. Only do this for a file you downloaded from this repository's [Releases page](https://github.com/support-leagueorbit/OBS-Companion/releases) and checked as above. On macOS, a file downloaded in a browser may need **right-click › Open** the first time.
 ## First run
 
 1. **Turn on OBS's WebSocket server:** in OBS, **Tools › WebSocket Server Settings › Enable WebSocket server** (keep authentication on), then **Apply**. OBS Companion reads the password from OBS on the same computer and keeps it in memory only.
@@ -76,12 +62,12 @@ The full guide: [docs/USER_GUIDE.md](docs/USER_GUIDE.md). Questions: [FAQ](FAQ.m
 
 ## Update
 
-Install the new version over the old one: quit OBS Companion (tray icon › **Quit**), then run the new Setup program or the same one-line command again. Your settings, cameras and media are kept.
+Install the new version over the old one: quit OBS Companion (tray icon › **Quit**), then download, check and run the new Setup program (or unpack the new archive over the old folder). Your settings, cameras and media are kept.
 
 ## Uninstall
 
 - **Windows:** **Settings › Apps › Installed apps › OBS Companion › Uninstall**. It asks whether to delete your settings too; choose **No** to keep them for a later reinstall.
-- **macOS and Linux:** quit OBS Companion and delete `~/.local/bin/obs-companion` (or the folder you unpacked). Your settings are in `~/Library/Application Support/obs-companion` (macOS) or `~/.config/obs-companion` (Linux); delete that folder too if you don't want to keep them.
+- **macOS and Linux:** quit OBS Companion and delete the folder you unpacked (or `~/.local/bin/obs-companion` if an older version's install script put it there). Your settings are in `~/Library/Application Support/obs-companion` (macOS) or `~/.config/obs-companion` (Linux); delete that folder too if you don't want to keep them.
 
 OBS itself is never changed by uninstalling. A profile the companion added (**OBS Companion recommended**) stays in OBS until you remove it there.
 
